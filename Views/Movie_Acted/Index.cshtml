@@ -1,0 +1,39 @@
+﻿@model IEnumerable<IndianMovies.Models.Movie_Acted>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Actor.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Movie.MovieName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Actor.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Movie.MovieName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Movie_ActedID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Movie_ActedID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Movie_ActedID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,40 @@
+﻿@model IndianMovies.Models.Movie_Acted
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Movie_Acted</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Actor.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Actor.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Movie.MovieName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Movie.MovieName)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
